@@ -1,12 +1,12 @@
 <template>
-  <div id="app">
-    <router-view></router-view>
-    <!-- <hello></hello> -->
-  </div>
+    <div id="app">
+        <router-view></router-view>
+        <!-- <hello></hello> -->
+    </div>
 </template>
 
 <script>
-import Hello from './components/Hello'
+import Hello from './components/pages/Hello.vue'
 
 export default {
   name: 'app',
