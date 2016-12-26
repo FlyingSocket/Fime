@@ -5,10 +5,20 @@ import App from './App'
 import VueResource from 'vue-resource'
 import VueRouter from 'vue-router'
 import Materials from 'vue-materials'
+import * as firebase from 'firebase'
 
 Vue.use(Materials)
 Vue.use(VueResource)
 Vue.use(VueRouter)
+
+var config = {
+  apiKey: 'AIzaSyBzzVIFtNrVIrekcqUpDzIcTDlL6Ii0WwQ',
+  authDomain: 'fime-f2876.firebaseapp.com',
+  databaseURL: 'https://fime-f2876.firebaseio.com',
+  storageBucket: 'fime-f2876.appspot.com',
+  messagingSenderId: '781607581950'
+}
+firebase.initializeApp(config)
 
 const router = new VueRouter({
   mode: 'history',

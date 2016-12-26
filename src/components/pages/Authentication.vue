@@ -20,17 +20,26 @@
 </template>
 
 <script>
+import * as firebase from 'firebase'
 export default {
   name: 'authentication',
   data () {
     return {
       Firstname: '',
-      Lastname: ''
+      Lastname: '',
+      errorCode: '',
+      errorMessage: ''
     }
   },
   methods: {
     send: function () {
       console.log(this.Firstname + this.Lastname)
+      firebase.auth().createUserWithEmailAndPassword(this.Firstname, this.Lastname).catch((error) => {
+        // Handle Errors here.
+        this.errorCode = error.code
+        this.errorMessage = error.message
+        // ...
+      })
     }
   }
 }

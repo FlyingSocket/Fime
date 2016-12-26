@@ -13,6 +13,7 @@
     "lint": "eslint --ext .js,.vue src test/unit/specs test/e2e/specs"
   },
   "dependencies": {
+    "firebase": "^3.6.4",
     "vue": "^2.1.0",
     "vue-materials": "^1.0.7-rc.6",
     "vue-resource": "^1.0.3",
