@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import Hello from './components/Hello'
+import Hello from './components/pages/Hello.vue'
 
 export default {
   name: 'app',
