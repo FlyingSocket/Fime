@@ -1,7 +1,7 @@
 <template>
-  <div class="authentication">
-    <h1>Authentication</h1>
-  </div>
+    <div class="authentication">
+        <h1>Authentication</h1>
+    </div>
 </template>
 
 <script>
