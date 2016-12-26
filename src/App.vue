@@ -1,5 +1,6 @@
 <template>
     <div id="app">
+        <navigation></navigation>
         <router-view></router-view>
         <!-- <hello></hello> -->
     </div>
@@ -7,11 +8,13 @@
 
 <script>
 import Hello from './components/pages/Hello.vue'
+import Navigation from './components/navigation/Navigation.vue'
 
 export default {
   name: 'app',
   components: {
-    Hello
+    Hello,
+    Navigation
   },
   mounted () {
   }
