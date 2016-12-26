@@ -4,7 +4,9 @@ import Vue from 'vue'
 import App from './App'
 import VueResource from 'vue-resource'
 import VueRouter from 'vue-router'
+import Materials from 'vue-materials'
 
+Vue.use(Materials)
 Vue.use(VueResource)
 Vue.use(VueRouter)
 
