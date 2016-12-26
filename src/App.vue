@@ -9,7 +9,7 @@
 import Hello from './components/pages/Hello.vue'
 
 export default {
-    name: 'app',
+  name: 'app',
   components: {
     Hello
   }
