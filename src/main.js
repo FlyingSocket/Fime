@@ -13,8 +13,23 @@ const router = new VueRouter({
   routes: [
     {
       path: '/home',
-      component: require('./components/Home.vue'),
+      component: require('./components/pages/Home.vue'),
       name: 'Home'
+    },
+    {
+      path: '/authentication',
+      component: require('./components/pages/Authentication.vue'),
+      name: 'Authentication'
+    },
+    {
+      path: '/add',
+      component: require('./components/pages/Add.vue'),
+      name: 'Add'
+    },
+    {
+      path: '/settings',
+      component: require('./components/pages/Settings.vue'),
+      name: 'Settings'
     },
     {
       path: '*',
