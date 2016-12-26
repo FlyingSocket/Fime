@@ -38,6 +38,14 @@ export default {
     }
   },
   mounted () {
+    // var database = firebase.database()
+    var user = firebase.auth().currentUser
+
+    if (user) {
+  // User is signed in.
+    } else {
+      console.log('no')
+    }
   }
 }
 </script>
