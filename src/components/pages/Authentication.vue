@@ -2,15 +2,16 @@
     <div class="authentication">
         <h1>Authentication</h1>
         <div class="row">
+            <p>{{ errorMessage }}</p>
           <form class="col s12">
           <div class="row">
             <div class="input-field col s6">
-              <input v-model="Firstname" id="first_name" type="text" class="validate">
-              <label for="first_name">First Name</label>
+              <input v-model="email" id="email" type="text" class="validate">
+              <label for="email">Email</label>
             </div>
             <div class="input-field col s6">
-              <input v-model="Lastname" id="last_name" type="text" class="validate">
-              <label for="last_name">Last Name</label>
+              <input v-model="password" id="password" type="text" class="validate">
+              <label for="password">Password</label>
             </div>
           </div>
         </div>
@@ -25,20 +26,26 @@ export default {
   name: 'authentication',
   data () {
     return {
-      Firstname: '',
-      Lastname: '',
+      email: '',
+      password: '',
       errorCode: '',
       errorMessage: ''
     }
   },
   methods: {
     send: function () {
-      console.log(this.Firstname + this.Lastname)
-      firebase.auth().createUserWithEmailAndPassword(this.Firstname, this.Lastname).catch((error) => {
+      console.log(this.email + this.password)
+      firebase.auth().signInWithEmailAndPassword(this.email, this.password).catch((error) => {
         // Handle Errors here.
         this.errorCode = error.code
         this.errorMessage = error.message
         // ...
+      })
+      firebase.auth().onAuthStateChanged((user) => {
+        if (user) {
+          // User is signed in.
+          console.log('User is signed in.')
+        }
       })
     }
   }
