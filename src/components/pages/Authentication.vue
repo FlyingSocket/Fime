@@ -68,13 +68,7 @@ export default {
         this.errorMessage = error.message
         // ...
       })
-      firebase.auth().onAuthStateChanged((user) => {
-        if (user) {
-          console.log('User is signed in.')
-        } else {
-          console.log('An error happened.')
-        }
-      })
+      this.isSignedIn()
     },
     signUp: function () {
       console.log(this.email + this.password)
@@ -83,6 +77,15 @@ export default {
         this.errorCode = error.code
         this.errorMessage = error.message
         // ...
+      })
+    },
+    isSignedIn: function () {
+      firebase.auth().onAuthStateChanged((user) => {
+        if (user) {
+          console.log('User is signed in.')
+        } else {
+          console.log('An error happened.')
+        }
       })
     }
   }
