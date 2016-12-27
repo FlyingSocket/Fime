@@ -14,10 +14,12 @@
               <label for="password">Password</label>
             </div>
           </div>
+          </form>
         </div>
         <button @click="send" class="btn waves-effect waves-light" name="action">Submit
            <i class="material-icons right">send</i>
         </button>
+    </div>
 </template>
 
 <script>
