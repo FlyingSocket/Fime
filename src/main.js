@@ -12,11 +12,11 @@ Vue.use(VueResource)
 Vue.use(VueRouter)
 
 var config = {
-  apiKey: 'AIzaSyBzzVIFtNrVIrekcqUpDzIcTDlL6Ii0WwQ',
-  authDomain: 'fime-f2876.firebaseapp.com',
-  databaseURL: 'https://fime-f2876.firebaseio.com',
-  storageBucket: 'fime-f2876.appspot.com',
-  messagingSenderId: '781607581950'
+  apiKey: 'AIzaSyCUqWNfqsc5klXP41tbq1QJCqbs-v1SoZU',
+  authDomain: 'fime-5baf1.firebaseapp.com',
+  databaseURL: 'https://fime-5baf1.firebaseio.com',
+  storageBucket: 'fime-5baf1.appspot.com',
+  messagingSenderId: '623507253997'
 }
 firebase.initializeApp(config)
 
