@@ -1,7 +1,7 @@
 <template>
     <div id="app">
-        <navigation></navigation>
-        <router-view></router-view>
+        <navigation v-if="!hideMenu"></navigation>
+        <router-view @route-data-loaded="detectRoute"></router-view>
         <!-- <hello></hello> -->
     </div>
 </template>
@@ -16,7 +16,27 @@ export default {
     Hello,
     Navigation
   },
+  data () {
+    return {
+      hideMenu: false
+    }
+  },
   mounted () {
+    // console.log(this.$route.path)
+    // if (this.$route.path == '/authentication') {
+    //   console.log('yes')
+    // }
+  },
+  methods: {
+    detectRoute (vm) {
+      console.log(this.$route.path)
+      console.log('hideMenu :' + vm.hideMenu)
+      if (this.$route.path === '/authentication') {
+        vm.hideMenu = true
+      } else {
+        vm.hideMenu = false
+      }
+    }
   }
 }
 </script>
