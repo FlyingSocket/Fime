@@ -26,6 +26,11 @@
                   </router-link>
               </li>
               <li>
+                  <router-link class="item" :to="{ name: 'profile' }">
+                      <p> Profile </p>
+                  </router-link>
+              </li>
+              <li>
                   <router-link class="item" :to="{ name: 'add' }">
                       <p> Add </p>
                   </router-link>
