@@ -45,7 +45,9 @@ export default {
   name: 'navigation',
   data () {
     return {
-      msg: ''
+      nav: {
+        closeOnClick: true
+      }
     }
   },
   mounted () {
@@ -55,5 +57,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-
+  .router-link-active {
+      background-color: rgba(0, 0, 0, 0.05);
+  }
 </style>
