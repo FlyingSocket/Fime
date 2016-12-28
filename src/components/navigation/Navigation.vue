@@ -10,7 +10,7 @@
                <a v-side-nav:demo="nav"><v-icon>more_vert</v-icon></a>
            </li>
            <li>
-
+               <!-- TODO : refactor this link -->
                <a @click="signOut" href="authentication">
                    <v-icon>power_settings_new</v-icon>
                </a>
