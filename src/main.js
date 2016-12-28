@@ -34,6 +34,11 @@ const router = new VueRouter({
       name: 'Authentication'
     },
     {
+      path: '/reset-password',
+      component: require('./components/pages/ResetPassword.vue'),
+      name: 'Reset Password'
+    },
+    {
       path: '/add',
       component: require('./components/pages/Add.vue'),
       name: 'Add'

@@ -15,6 +15,9 @@
             </div>
           </div>
           </form>
+            <router-link class="item" :to="{ name: 'Reset Password' }">
+                <p>Forget password ?</p>
+            </router-link>
         </div>
         <button @click="signIn" class="btn waves-effect waves-light" name="action">Sign In
            <i class="material-icons right">send</i>
