@@ -2,6 +2,7 @@
     <div class="reset-password">
         <h1>Reset Password</h1>
         <div class="row">
+            <p class="green-text text-darken-3">{{ successMessage }}</p>
             <p class="red-text text-darken-3">{{ errorMessage }}</p>
             <form class="col s12">
                 <div class="row">
@@ -15,6 +16,9 @@
         <button @click="resetPassword" class="btn waves-effect waves-light" name="action">Reset password
             <i class="material-icons right">send</i>
         </button>
+        <router-link class="item" :to="{ name: 'authentication' }">
+            <p>Return to sign in page</p>
+        </router-link>
     </div>
 </template>
 
@@ -26,13 +30,15 @@ export default {
     return {
       email: '',
       errorCode: '',
-      errorMessage: ''
+      errorMessage: '',
+      successMessage: ''
     }
   },
   methods: {
     resetPassword: function () {
       firebase.auth().sendPasswordResetEmail(this.email).then(() => {
         console.log('Email sent.')
+        this.successMessage = 'Email sent successfully. Please check your email box.'
       }, (error) => {
         console.log('An error happened.')
         // Handle Errors here.

@@ -15,7 +15,7 @@
             </div>
           </div>
           </form>
-            <router-link class="item" :to="{ name: 'Reset Password' }">
+            <router-link class="item" :to="{ name: 'reset-password' }">
                 <p>Forget password ?</p>
             </router-link>
         </div>
@@ -87,6 +87,7 @@ export default {
         if (user) {
           console.log(user)
           console.log('User is signed in.')
+          this.$router.push({ path: 'profile' })
         } else {
           console.log(user)
           console.log('No user is signed in.')

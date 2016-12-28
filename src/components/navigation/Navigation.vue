@@ -21,22 +21,22 @@
         <v-material-box src="http://materializecss.com/images/sample-1.jpg"></v-material-box>
           <ul>
               <li>
-                  <router-link class="item" :to="{ name: 'Home' }">
+                  <router-link class="item" :to="{ name: 'home' }">
                       <p> Home </p>
                   </router-link>
               </li>
               <li>
-                  <router-link class="item" :to="{ name: 'Add' }">
+                  <router-link class="item" :to="{ name: 'add' }">
                       <p> Add </p>
                   </router-link>
               </li>
               <li>
-                  <router-link class="item" :to="{ name: 'Authentication' }">
+                  <router-link class="item" :to="{ name: 'authentication' }">
                       <p> Authentication </p>
                   </router-link>
               </li>
               <li>
-                  <router-link class="item" :to="{ name: 'Settings' }">
+                  <router-link class="item" :to="{ name: 'settings' }">
                       <p> Settings </p>
                   </router-link>
               </li>

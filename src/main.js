@@ -26,27 +26,32 @@ const router = new VueRouter({
     {
       path: '/home',
       component: require('./components/pages/Home.vue'),
-      name: 'Home'
+      name: 'home'
     },
     {
       path: '/authentication',
       component: require('./components/pages/Authentication.vue'),
-      name: 'Authentication'
+      name: 'authentication'
     },
     {
       path: '/reset-password',
       component: require('./components/pages/ResetPassword.vue'),
-      name: 'Reset Password'
+      name: 'reset-password'
+    },
+    {
+      path: '/profile',
+      component: require('./components/pages/Profile.vue'),
+      name: 'profile'
     },
     {
       path: '/add',
       component: require('./components/pages/Add.vue'),
-      name: 'Add'
+      name: 'add'
     },
     {
       path: '/settings',
       component: require('./components/pages/Settings.vue'),
-      name: 'Settings'
+      name: 'settings'
     },
     {
       path: '*',
