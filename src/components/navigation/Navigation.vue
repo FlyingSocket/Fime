@@ -9,6 +9,12 @@
            <li>
                <a v-side-nav:demo="nav"><v-icon>more_vert</v-icon></a>
            </li>
+           <li>
+
+               <a @click="signOut" href="authentication">
+                   <v-icon>power_settings_new</v-icon>
+               </a>
+           </li>
        </ul>
 
       <v-side-nav id="demo">
@@ -41,16 +47,32 @@
 </template>
 
 <script>
+import * as firebase from 'firebase'
 export default {
   name: 'navigation',
   data () {
     return {
       nav: {
         closeOnClick: true
-      }
+      },
+      errorCode: '',
+      errorMessage: ''
     }
   },
   mounted () {
+  },
+  methods: {
+    signOut: function () {
+      firebase.auth().signOut().then(() => {
+        console.log('Sign-out successful.')
+      }, (error) => {
+        console.log('An error happened.')
+        // Handle Errors here.
+        this.errorCode = error.code
+        this.errorMessage = error.message
+        // ...
+      })
+    }
   }
 }
 </script>

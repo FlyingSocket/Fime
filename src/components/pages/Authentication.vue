@@ -19,7 +19,7 @@
         <button @click="signIn" class="btn waves-effect waves-light" name="action">Sign In
            <i class="material-icons right">send</i>
         </button>
-        <p @click="account = !account">Vous n'avez pas encore de compte Fime ?</p>
+        <p @click="account = !account">Vous n'avez pas encore de compte ?</p>
     </div>
 
     <div class="authentication" v-else>
