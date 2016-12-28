@@ -2,15 +2,15 @@
     <div class="authentication" v-if="account">
         <h1>Sign In</h1>
         <div class="row">
-            <p>{{ errorMessage }}</p>
+            <p class="red-text text-darken-3">{{ errorMessage }}</p>
           <form class="col s12">
           <div class="row">
             <div class="input-field col s12">
-              <input v-model="email" id="email" type="text" class="validate">
+              <input v-model="email" id="email" type="email" class="validate">
               <label for="email">Email</label>
             </div>
             <div class="input-field col s12">
-              <input v-model="password" id="password" type="text" class="validate">
+              <input v-model="password" id="password" type="password" class="validate">
               <label for="password">Password</label>
             </div>
           </div>
@@ -25,15 +25,15 @@
     <div class="authentication" v-else>
         <h1>Sign Up</h1>
         <div class="row">
-            <p>{{ errorMessage }}</p>
+            <p class="red-text text-darken-3">{{ errorMessage }}</p>
             <form class="col s12">
                 <div class="row">
                     <div class="input-field col s12">
-                        <input v-model="email" id="email" type="text" class="validate">
+                        <input v-model="email" id="email" type="email" class="validate">
                         <label for="email">Email</label>
                     </div>
                     <div class="input-field col s12">
-                        <input v-model="password" id="password" type="text" class="validate">
+                        <input v-model="password" id="password" type="password" class="validate">
                         <label for="password">Password</label>
                     </div>
                 </div>
@@ -82,9 +82,11 @@ export default {
     isSignedIn: function () {
       firebase.auth().onAuthStateChanged((user) => {
         if (user) {
+          console.log(user)
           console.log('User is signed in.')
         } else {
-          console.log('An error happened.')
+          console.log(user)
+          console.log('No user is signed in.')
         }
       })
     }
