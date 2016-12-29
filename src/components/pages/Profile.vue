@@ -2,18 +2,21 @@
     <div class="profile">
         <h1>Profile</h1>
         <div class="row">
-            <p>Your email is {{ email }}</p>
+            <p>Your email is {{ email }}, {{ state.email }}</p>
         </div>
     </div>
 </template>
 
 <script>
 import * as firebase from 'firebase'
+import usersStore from 'src/store/UsersStore.js'
+
 export default {
   name: 'profile',
   data () {
     return {
-      email: ''
+      email: '',
+      state: usersStore.state
     }
   },
   mounted: function () {
@@ -38,6 +41,7 @@ export default {
 
       if (user != null) {
         this.email = user.email
+        this.usersStore.state.email = user.email
         console.log(user)
         console.log(this.email)
       } else {
