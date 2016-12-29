@@ -2,7 +2,7 @@
     <div class="profile">
         <h1>Profile</h1>
         <div class="row">
-            <p>Your email is {{ email }}, {{ state.email }}</p>
+            <p>Your email is {{ state.email }}</p>
         </div>
     </div>
 </template>
@@ -15,7 +15,6 @@ export default {
   name: 'profile',
   data () {
     return {
-      email: '',
       state: usersStore.state
     }
   },
@@ -40,10 +39,9 @@ export default {
       var user = firebase.auth().currentUser
 
       if (user != null) {
-        this.email = user.email
-        this.usersStore.state.email = user.email
+        this.state.email = user.email
         console.log(user)
-        console.log(this.email)
+        console.log(this.state.email)
       } else {
         console.log('No user')
       }
