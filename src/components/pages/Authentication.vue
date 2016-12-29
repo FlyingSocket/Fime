@@ -1,52 +1,54 @@
 <template>
-    <div class="authentication" v-if="account">
-        <h1>Sign In</h1>
-        <div class="row">
-            <p class="red-text text-darken-3">{{ errorMessage }}</p>
-          <form class="col s12">
-          <div class="row">
-            <div class="input-field col s12">
-              <input v-model="email" id="email" type="email" class="validate">
-              <label for="email">Email</label>
+    <transition name="fade" appear mode="out-in">
+        <div class="authentication" v-if="visible" key="visible">
+            <h1>Sign In</h1>
+            <div class="row">
+                <p class="red-text text-darken-3">{{ errorMessage }}</p>
+                <form class="col s12">
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input v-model="email" id="email" type="email" class="validate">
+                            <label for="email">Email</label>
+                        </div>
+                        <div class="input-field col s12">
+                            <input v-model="password" id="password" type="password" class="validate">
+                            <label for="password">Password</label>
+                        </div>
+                    </div>
+                </form>
+                <router-link class="item" :to="{ name: 'reset-password' }">
+                    <p>Forget password ?</p>
+                </router-link>
             </div>
-            <div class="input-field col s12">
-              <input v-model="password" id="password" type="password" class="validate">
-              <label for="password">Password</label>
-            </div>
-          </div>
-          </form>
-            <router-link class="item" :to="{ name: 'reset-password' }">
-                <p>Forget password ?</p>
-            </router-link>
+            <button @click="signIn" class="btn waves-effect waves-light" name="action">Sign In
+                <i class="material-icons right">send</i>
+            </button>
+            <p @click="toggle">Vous n'avez pas encore de compte ?</p>
         </div>
-        <button @click="signIn" class="btn waves-effect waves-light" name="action">Sign In
-           <i class="material-icons right">send</i>
-        </button>
-        <p @click="account = !account">Vous n'avez pas encore de compte ?</p>
-    </div>
 
-    <div class="authentication" v-else>
-        <h1>Sign Up</h1>
-        <div class="row">
-            <p class="red-text text-darken-3">{{ errorMessage }}</p>
-            <form class="col s12">
-                <div class="row">
-                    <div class="input-field col s12">
-                        <input v-model="email" id="email" type="email" class="validate">
-                        <label for="email">Email</label>
+        <div class="authentication" v-else key="invisible">
+            <h1>Sign Up</h1>
+            <div class="row">
+                <p class="red-text text-darken-3">{{ errorMessage }}</p>
+                <form class="col s12">
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input v-model="email" id="email" type="email" class="validate">
+                            <label for="email">Email</label>
+                        </div>
+                        <div class="input-field col s12">
+                            <input v-model="password" id="password" type="password" class="validate">
+                            <label for="password">Password</label>
+                        </div>
                     </div>
-                    <div class="input-field col s12">
-                        <input v-model="password" id="password" type="password" class="validate">
-                        <label for="password">Password</label>
-                    </div>
-                </div>
-            </form>
+                </form>
+            </div>
+            <button @click="signUp" class="btn waves-effect waves-light" name="action">Sign Up
+                <i class="material-icons right">send</i>
+            </button>
+            <p @click="toggle">Vous avez déjà un compte ?</p>
         </div>
-        <button @click="signUp" class="btn waves-effect waves-light" name="action">Sign Up
-            <i class="material-icons right">send</i>
-        </button>
-        <p @click="account = !account">Vous avez déjà un compte ?</p>
-    </div>
+    </transition>
 </template>
 
 <script>
@@ -59,10 +61,13 @@ export default {
       password: '',
       errorCode: '',
       errorMessage: '',
-      account: true
+      visible: true
     }
   },
   methods: {
+    toggle: function () {
+      this.visible = !this.visible
+    },
     signIn: function () {
       console.log(this.email + this.password)
       firebase.auth().signInWithEmailAndPassword(this.email, this.password).catch((error) => {
@@ -100,5 +105,11 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-
+    .fade-enter-active, .fade-leave-active {
+        transition: opacity .8s, transform .8s;
+    }
+    .fade-enter, .fade-leave-active {
+        opacity: 0;
+        transform: translateX(90%);
+    }
 </style>
